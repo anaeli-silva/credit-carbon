@@ -1,6 +1,6 @@
 import { useTheme } from "../hooks/useTheme";
 import { Moon, Sun } from "lucide-react";
-import React from "react";
+// import React from "react";
 // import { NavLink, NavLinkRenderProps } from "react-router-dom";
 import { twMerge } from "tailwind-merge";
 
