@@ -1,10 +1,19 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-import App from './App.tsx'
-import './index.css'
+import './styles/index.css'
+import Router from './router/index.tsx'
+import { Header } from './components/Header.tsx'
+import { Footer } from './components/footer.tsx'
+import { AppContext } from './context/AppContext.tsx'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <App />
+    <AppContext>
+      {/* <TracingBeam className='overflow-x-hidden'> */}
+        <Header/>
+        <Router />
+        <Footer />
+      {/* </TracingBeam> */}
+    </AppContext>
   </StrictMode>,
 )
