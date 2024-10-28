@@ -1,0 +1,1 @@
+type ObjAccessor<T> = Accessor<object, T>;
