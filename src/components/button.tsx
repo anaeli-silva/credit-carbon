@@ -11,7 +11,7 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 
 export function Button({ label, leftIcon: LIcon, rightIcon: RIcon, className, ...rest }: ButtonProps) {
     return (
-        <button {...rest} className={twMerge("bg-emerald-400 rounded-lg p-2 text-gray-700 font-medium outline-none hover:shadow-md", className)}>
+        <button {...rest} className={twMerge("bg-emerald-400 rounded-lg p-2 text-gray-700 font-medium outline-none hover:shadow-md disabled:bg-slate-100 disabled:cursor-not-allowed disabled:opacity-50 transition duration-150", className)}>
             {LIcon && LIcon}
             {label && <span>{label}</span>}
             {RIcon && RIcon}
