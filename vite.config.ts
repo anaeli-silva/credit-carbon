@@ -7,4 +7,9 @@ export default defineConfig({
   plugins: [react(), svgr({
     include: '**/*.svg?react',
   })],
+  resolve: {
+    alias: {
+      '@': '/src',
+    },
+  }
 })
