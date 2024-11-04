@@ -1,4 +1,4 @@
-import { ThemeContext } from "../context/ThemProvider";
+import { ThemeContext } from "@/context/ThemProvider";
 import { useContext } from "react";
 
 
