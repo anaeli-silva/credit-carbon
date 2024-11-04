@@ -1,13 +1,42 @@
-import { Input } from '../components/Input'
-import { Banner } from '../components/banner'
-import { Card } from '../components/Card'
-import { listCalc } from '../utils/functions'
+import { Input } from '@/components/Input'
+import { Banner } from '@/components/banner'
+import { Card } from '@/components/Card'
+import { listCalc } from '@/utils/functions'
 import { motion } from 'framer-motion'
 import { Activity, Building2, CreditCard, Trees } from 'lucide-react'
-import { Button } from '../components/button'
+import { Button } from '@/components/button'
+import { useEffect, useRef } from 'react'
 
 export function Home() {
-  // const [count, setCount] = useState(0)
+  const calculatorRef = useRef<HTMLDivElement>(null);
+  const scrollToCalculator = () => {
+    const { current } = calculatorRef;
+    
+    if (current) {
+      window.scrollTo({
+        top: current.offsetTop,
+        behavior: 'smooth'
+      });
+    }
+  }
+
+  useEffect(() => {
+    const handleHashChange = () => {
+      if (window.location.hash === '#calculator') {
+        scrollToCalculator();
+      }
+    };
+
+    window.addEventListener('hashchange', handleHashChange);
+
+    if (window.location.hash === '#calculator') {
+      scrollToCalculator();
+    }
+
+    return () => {
+      window.removeEventListener('hashchange', handleHashChange);
+    };
+  }, [])
 
   const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -17,16 +46,7 @@ export function Home() {
     <>
       <Banner />
       <section className='max-w-7xl mx-auto my-8'>
-        <div 
-          // Create animation from The Top
-          // initial={{ opacity: 0, y: -100 }}
-          // // When the component is in the viewport
-          // whileInView={{ opacity: 1, y: 0 }}
-          // // Animation duration
-          // transition={{ duration: 0.5 }}
-          // // exit
-          // exit={{ opacity: 0, y: 100 }}
-          // whileHover={{ scale: 1.1 }}
+        <div
           className='flex items-center justify-center flex-wrap gap-12 my-16'
         >
           <Card 
@@ -109,7 +129,7 @@ export function Home() {
         </div>
 
 
-        <div className='px-5 py-4 max-w-[624px] mx-auto mt-12'>
+        <div className='px-5 py-4 max-w-[624px] mx-auto mt-12' ref={calculatorRef}>
           <h2 className='text-center text-2xl font-bold mb-4'>Calcule suas emissões</h2>
           <div className='flex flex-row justify-start flex-wrap mt-3'>
             {
@@ -124,7 +144,9 @@ export function Home() {
             }
           </div>
 
-          <motion.div className='mt-16'>
+          <motion.div 
+            className='mt-16'
+          >
             <h2 className='text-center text-2xl font-bold mb-4'>Informe suas emissões</h2>
             <div className='flex'>
               <form onSubmit={onSubmit} className='flex flex-col gap-3 flex-[0_0_50%] w-full'>
