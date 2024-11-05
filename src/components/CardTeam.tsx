@@ -2,6 +2,7 @@ import GithubLogo from "@/assets/github.svg?react";
 import LinkedinLogo from "@/assets/linkedin.svg?react";
 import { twMerge } from "tailwind-merge";
 import { Card } from "./Card";
+import { useTheme } from "@/hooks/useTheme";
 
 interface CardTeamProps extends React.HTMLAttributes<HTMLDivElement> {
     name: string;
@@ -12,6 +13,7 @@ interface CardTeamProps extends React.HTMLAttributes<HTMLDivElement> {
 }
 
 export function CardTeam({ name, imgSource, linkedinUrl, githubUrl, description, className, ...rest }: CardTeamProps) {
+    const { theme } = useTheme();
     return (
         <div {...rest} className={twMerge("flex items-center gap-4 group", className)}>
             <Card
@@ -41,7 +43,7 @@ export function CardTeam({ name, imgSource, linkedinUrl, githubUrl, description,
                         <LinkedinLogo width={28} height={28}/>
                     </a>
                     <a href={githubUrl} target="_blank">
-                        <GithubLogo width={28} hanging={28} fill="black"/>
+                        <GithubLogo width={28} hanging={28} fill={theme == "light" ? "black" : "white"} />
                     </a>
                 </div>
 

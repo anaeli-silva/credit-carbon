@@ -117,7 +117,7 @@ export function Home() {
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.5 }}
               >
-                <h2 className='font-bold text-center text-2xl mb-2'>Reduza seu Impacto com Créditos de Carbono</h2>
+                <h2 className='font-bold text-center text-2xl mb-2 text-zinc-100'>Reduza seu Impacto com Créditos de Carbono</h2>
                 <p className='text-base text-justify'>O Crédito de Carbono é uma solução criada para reduzir o impacto das emissões de dióxido de carbono (CO₂) na atmosfera. Cada crédito representa uma tonelada de CO₂ que foi evitada ou removida, geralmente por meio de projetos sustentáveis, como reflorestamento, energia renovável e conservação de florestas. Empresas e indivíduos podem adquirir créditos de carbono para compensar suas emissões, contribuindo diretamente para o combate às mudanças climáticas. Dessa forma, os créditos de carbono permitem uma ação concreta na direção de um futuro mais sustentável.</p>
                 <Button 
                   label='Veja mais'
@@ -130,11 +130,11 @@ export function Home() {
 
 
         <div className='px-5 py-4 max-w-[624px] mx-auto mt-12' ref={calculatorRef}>
-          <h2 className='text-center text-2xl font-bold mb-4'>Calcule suas emissões</h2>
+          <h2 className='text-center text-2xl font-bold mb-4 dark:text-zinc-100'>Calcule suas emissões</h2>
           <div className='flex flex-row justify-start flex-wrap mt-3'>
             {
               listCalc.map((item, i) => (
-                <button key={i} className='flex-[0_0_20%] flex flex-col items-center hover:bg-gray-100 rounded-xl transition duration-200'>
+                <button key={i} className='flex-[0_0_20%] flex flex-col items-center hover:bg-gray-100 rounded-xl transition duration-150 dark:hover:bg-[#232225] border-1 border-transparent dark:hover:border-[#3E3C41]'>
                   <div className='flex flex-col items-center text-center w-full p-4 rounded-xl'>
                     <item.icon size={32} />
                     <p>{item.label}</p>

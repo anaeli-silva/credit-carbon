@@ -54,7 +54,7 @@ export function MessageContainer({ isBot, message }: MessageContainerProps) {
                     duration: 0.3
                 }
             }}
-            className={twMerge("w-fit rounded-md px-2 my-2", isBot ? "bg-slate-200 rounded-bl-none" : "ml-auto")}
+            className={twMerge("w-fit rounded-md px-2 my-2", isBot ? "bg-slate-200 rounded-bl-none py-2 dark:bg-[#2E2C30]" : "ml-auto")}
         >
             <motion.div
                 initial="out"
