@@ -1,1 +1,0 @@
-export function rm (path) { return null }
