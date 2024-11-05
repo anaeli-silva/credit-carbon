@@ -1,4 +1,4 @@
-import { ollama } from '@/utils/ollama';
+import { api } from '@/utils/api';
 import { createContext, useEffect, useState } from 'react';
 
 // interface 
@@ -26,22 +26,20 @@ function ChatBoxProvider({ children }: { children: React.ReactNode }) {
         try {
             setIsLoading(true);
             setError(null);
-            
-            ollama.chat({
+
+            api.post("/api/chat", { 
                 model: "Ianni",
-                stream: false,
                 messages: [...messages.slice(-5), message],
+                stream: false,
                 options: {
                     top_p: 0.8,
                 }
             })
-                .then(({ message }) => {
-                    console.log(message)
+                .then(({ data }: { data: ChatRequest }) => {
                     setMessages((prev) => {
-                        localStorage.setItem('messages', JSON.stringify([...prev, message]));
-                        return [...prev, message]
-                    });
-                    
+                        localStorage.setItem('messages', JSON.stringify([...prev, data.message!]));
+                        return [...prev, data.message!]
+                    })
                 })
                     .catch((err) => {
                         throw new Error(err);

@@ -6,7 +6,7 @@ interface Message {
 
 interface ChatRequest {
     model: string;
-    messages?: Message[];
+    message?: Message;
     stream?: boolean;
     format?: string;
     keep_alive?: string | number;
