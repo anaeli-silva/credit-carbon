@@ -1,15 +1,15 @@
-import { useTheme } from "../hooks/useTheme";
+import { useTheme } from "@/hooks/useTheme";
 import { Moon, Sun } from "lucide-react";
 // import { Link } from "react-router-dom"
-import GithubLogo from "../assets/github.svg?react";
+import GithubLogo from "@/assets/github.svg?react";
 
 
 export function Footer() {
     const { theme, toggleTheme } = useTheme();
     const year = new Date().getFullYear();
 
-    return ( // 
-        <footer className="flex flex-col flex-1 bg-[#0a0a0a] text-white p-4">
+    return (
+        <footer className="flex flex-col flex-1 bg-[#232225] border-t-1 border-[#3E3C41] text-white p-4">
             <div className="max-w-7xl mx-auto w-full">
                 <nav className="">
                     <div className="flex items-center justify-between w-full">

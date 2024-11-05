@@ -10,9 +10,9 @@ export function Card({ className, children, ...rest }: CardProps) {
     return (
         <motion.div
             initial={{ opacity: 0, x: -100 }}
-            // animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5 }}
+            transition={{ duration: 0.25 }}
             whileInView={{ opacity: 1, x: 0 }}
+            // viewport={{ once: true }}
             {...rest}
             className={twMerge("", className)}
         >

@@ -1,4 +1,4 @@
-import { useTheme } from "../hooks/useTheme";
+import { useTheme } from "@/hooks/useTheme";
 import { Moon, Sun } from "lucide-react";
 // import React from "react";
 // import { NavLink, NavLinkRenderProps } from "react-router-dom";
@@ -15,7 +15,7 @@ export function Header({ className }: HeaderProps) {
     const { theme, toggleTheme } = useTheme();
 
     return (
-        <header className={twMerge("w-full p-2 text-zinc-100 text-base fixed bg-zinc-900 bg-opacity-75", className)}>
+        <header className={twMerge("w-full p-2 text-zinc-100 text-base fixed bg-zinc-900 bg-opacity-75 z-50", className)}>
             <div className="flex items-center justify-between  max-w-7xl mx-auto">
                 <img src="/logo.svg" alt="logo" width={48} height={48}/>
 
@@ -34,13 +34,11 @@ export function Header({ className }: HeaderProps) {
                 </nav>
 
                 {/* <div className="w-12" /> */}
-                <div>
-                    <button
-                        onClick={toggleTheme}
-                    >
-                        {theme == "light" ? <Moon size={23} /> : <Sun size={23} />}
-                    </button>
-                </div>
+                <button
+                    onClick={toggleTheme}
+                >
+                    {theme == "light" ? <Moon size={23} /> : <Sun size={23} />}
+                </button>
             </div>
         </header>
     )

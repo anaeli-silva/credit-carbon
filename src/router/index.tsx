@@ -1,4 +1,5 @@
-import { Home } from "../pages/Home"
+import { About } from "@/pages/About"
+import { Home } from "@/pages/Home"
 import { BrowserRouter, Route, Routes } from "react-router-dom"
 
 
@@ -7,7 +8,7 @@ export default function Router() {
         <BrowserRouter>
             <Routes>
                 <Route path="/" element={<Home />} />
-                <Route path="/about" element={<Home />} />
+                <Route path="/about" element={<About />} />
             </Routes>
         </BrowserRouter>
     )
