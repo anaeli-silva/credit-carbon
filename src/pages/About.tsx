@@ -64,15 +64,64 @@ export function About() {
             </div>
 
             <div className="mt-12">
-                <h2 className="text-3xl font-semibold my-5 text-center">Referencias</h2>
+    <h2 className="text-3xl font-semibold my-5 text-center">Referências</h2>
 
-                <ul>
-                    <li>
-                        <a href="" target="_blank"></a>
-                    </li>
-                </ul>
+    <p>
+        Câmera dos deputados, 2002. Legislação. Disponível em: <a href="https://www2.camara.leg.br/legin/fed/decleg/2002/decretolegislativo-144-20-junho-2002-458772-norma-pl.html" target="_blank" className="text-blue-600 underline">https://www2.camara.leg.br/legin/fed/decleg/2002/decretolegislativo-144-20-junho-2002-458772-norma-pl.html</a> Acesso em: 18 out.2024
+    </p>
+    <p>
+        Caroline Soares, 2021. Análise do mercado de carbono no Brasil: histórico e desenvolvimento. Disponível em: <a href="https://lume.ufrgs.br/handle/10183/238112" target="_blank" className="text-blue-600 underline">https://lume.ufrgs.br/handle/10183/238112</a> Acesso em: 06 set.2024
+    </p>
+    <p>
+        Caroline Soares; Letícia de Oliveira, 2021. Análise do mercado de carbono no Brasil: histórico e desenvolvimento. Disponível em: <a href="https://lume.ufrgs.br/handle/10183/238112" target="_blank" className="text-blue-600 underline">https://lume.ufrgs.br/handle/10183/238112</a> Acesso em: 4 out.2024
+    </p>
+    <p>
+        César Roberto; Mariano Rua, 2009. O Mercado de Carbono como Instrumento de Conservação da Floresta Amazônica. Disponível em: <a href="https://editorarevistas.mackenzie.br/index.php/rem/article/view/512/329" target="_blank" className="text-blue-600 underline">https://editorarevistas.mackenzie.br/index.php/rem/article/view/512/329</a> Acesso em: 18 out.2024
+    </p>
+    <p>
+        Diana Maria; Nelson Luís, 2014. Brevê: uma metodologia objetiva de cálculo de emissões para a frota brasileira de veículos. Disponível em: <a href="https://www.scielo.br/j/esa/a/WgHZ6hgHfprk7YLY8nVnVZz/?format=pdf&lang=pt" target="_blank" className="text-blue-600 underline">https://www.scielo.br/j/esa/a/WgHZ6hgHfprk7YLY8nVnVZz/?format=pdf&lang=pt</a> Acesso em: 26 out.2024
+    </p>
+    <p>
+        Fabíola Sinimbú, 2024. Brasil precisa recuperar 25 milhões de hectares de vegetação nativa. Disponível em: <a href="https://agenciabrasil.ebc.com.br/Brasil-precisa-recuperar-25-milh%C3%B5es-de-hectares-de-vegeta%C3%A7%C3%A3o-nativa" target="_blank" className="text-blue-600 underline">https://agenciabrasil.ebc.com.br/Brasil-precisa-recuperar-25-milh%C3%B5es-de-hectares-de-vegeta%C3%A7%C3%A3o-nativa</a> Acesso em: 11 out.2024
+    </p>
+    <p>
+        Instituto de Energia e Meio Ambiente, 2023. COP 28: Brasil emitiu 2,3 bilhões de toneladas brutas de gases de efeito estufa em 2022. Disponível em: <a href="https://energiaeambiente.org.br/cop-28-brasil-emitiu-23-bilhoes-de-toneladas-brutas-de-gases-de-efeito-estufa-em-2022-20231209#:~:text=O%20pa%C3%ADs%20emitiu%202%2C3,destaque%20para%20Cerrado%20e%20Amaz%C3%B4nia." target="_blank" className="text-blue-600 underline">https://energiaeambiente.org.br/cop-28-brasil-emitiu-23-bilhoes-de-toneladas-brutas-de-gases-de-efeito-estufa-em-2022-20231209#:~:text=O%20pa%C3%ADs%20emitiu%202%2C3,destaque%20para%20Cerrado%20e%20Amaz%C3%B4nia.</a> Acesso em: 11 out.2024
+    </p>
+    <p>
+        Ipam Amazônia. O que é e como funciona o mercado de carbono? Disponível em: <a href="https://ipam.org.br/cartilhas-ipam/o-que-e-e-como-funciona-o-mercado-de-carbono/" target="_blank" className="text-blue-600 underline">https://ipam.org.br/cartilhas-ipam/o-que-e-e-como-funciona-o-mercado-de-carbono/</a> Acesso em: 13 out.2024
+    </p>
+    <p>
+        José Célio; Paulo Costa, 2008. Mudança climática, protocolo de Kyoto e mercado de créditos de carbono: desafios à governança ambiental global. Disponível em: <a href="https://www.scielo.br/j/osoc/a/DWXT3BmCyyXRtk7yDwdrPpG/?lang=pt&format=html" target="_blank" className="text-blue-600 underline">https://www.scielo.br/j/osoc/a/DWXT3BmCyyXRtk7yDwdrPpG/?lang=pt&format=html</a> Acesso em: 18 out.2024
+    </p>
+    <p>
+        Louise Antunes; Paloma de Lavor; Raíza Silva, 2013. CRÉDITO DE CARBONO: O mercado de crédito de carbono no Brasil. Disponível em: <a href="https://www.aedb.br/seget/arquivos/artigos13/2018412.pdf" target="_blank" className="text-blue-600 underline">https://www.aedb.br/seget/arquivos/artigos13/2018412.pdf</a> Acesso em: 25 out.2024
+    </p>
+    <p>
+        Mario Sergio, 2003. Os mecanismos de cooperação internacional para redução de emissões sob o protocolo de Quioto Disponível em: <a href="https://escola.mpu.mp.br/publicacoescientificas/index.php/boletim/issue/view/16/18" target="_blank" className="text-blue-600 underline">https://escola.mpu.mp.br/publicacoescientificas/index.php/boletim/issue/view/16/18</a> Acesso em: 25 out.2024
+    </p>
+    <p>
+        Ministério da Ciência, Tecnologia e Inovação, 2021. Mecanismo de Desenvolvimento Limpo. Disponível em: <a href="https://www.gov.br/mcti/pt-br/acompanhe-o-mcti/cgcl/paginas/teste2" target="_blank" className="text-blue-600 underline">https://www.gov.br/mcti/pt-br/acompanhe-o-mcti/cgcl/paginas/teste2</a> Acesso em: 13 set.2024
+    </p>
+    <p>
+        Ministério do Meio Ambiente e Mudança Climática, 2021. Recuperação da vegetação nativa. Disponível em: <a href="https://www.gov.br/mma/pt-br/assuntos/biodiversidade-e-biomas/biomas-e-ecossistemas/projetos/recuperacao-da-vegetacao-nativa" target="_blank" className="text-blue-600 underline">https://www.gov.br/mma/pt-br/assuntos/biodiversidade-e-biomas/biomas-e-ecossistemas/projetos/recuperacao-da-vegetacao-nativa</a> Acesso em: 11 out.2024
+    </p>
+    <p>
+        Ministério do Meio Ambiente. Protocolo de Quioto. Disponível em: <a href="https://antigo.mma.gov.br/clima/convencao-das-nacoes-unidas/protocolo-de-quioto.html#:~:text=O%20Brasil%20ratificou%20o%20documento,Unidos%20n%C3%A3o%20ratificaram%20o%20Protocolo." target="_blank" className="text-blue-600 underline">https://antigo.mma.gov.br/clima/convencao-das-nacoes-unidas/protocolo-de-quioto.html#:~:text=O%20Brasil%20ratificou%20o%20documento,Unidos%20n%C3%A3o%20ratificaram%20o%20Protocolo.</a> Acesso em: 25 out.2024
+    </p>
+    <p>
+        Ministério Público Do Estado de Goiânia. Mecanismos de Desenvolvimento Limpo – MDL. Disponível em: <a href="https://www.mpgo.mp.br/portal/noticia/mecanismos-de-desenvolvimento-limpo-mdl#:~:text=O%20que%20%C3%A9%20Mecanismo%20de,dos%20pa%C3%ADses%20do%20Anexo%20I" target="_blank" className="text-blue-600 underline">https://www.mpgo.mp.br/portal/noticia/mecanismos-de-desenvolvimento-limpo-mdl#:~:text=O%20que%20%C3%A9%20Mecanismo%20de,dos%20pa%C3%ADses%20do%20Anexo%20I</a> Acesso em: 26 out.2024
+    </p>
+    <p>
+        Portal de Educação Ambiental, 2024. O que foi o Protocolo de Quioto é o Acordo de Paris? Disponível em: <a href="https://semil.sp.gov.br/educacaoambiental/prateleira-ambiental/o-que-foi-o-protocolo-de-quioto-e-o-que-e-o-acordo-de-paris/" target="_blank" className="text-blue-600 underline">https://semil.sp.gov.br/educacaoambiental/prateleira-ambiental/o-que-foi-o-protocolo-de-quioto-e-o-que-e-o-acordo-de-paris/</a> Acesso em: 25 out.2024
+    </p>
+    <p>
+        Sara Gurfinke, 2013. Projetos de redução de emissões de gases de efeito estufa: desempenho e custos de transação. Disponível em: <a href="https://www.sciencedirect.com/science/article/pii/S0080210716304393" target="_blank" className="text-blue-600 underline">https://www.sciencedirect.com/science/article/pii/S0080210716304393</a> Acesso em: 11 out.2024
+    </p>
+    <p>
+        United Nations Climate Change. O que é o Protocolo de Kyoto? Disponível em: <a href="https://unfccc.int/kyoto_protocol?gad_source=1&gclid=EAIaIQobChMInKfe0c-piQMVyACtBh1QGz3lEAAYASAAEgILbPD_BwE" target="_blank" className="text-blue-600 underline">https://unfccc.int/kyoto_protocol?gad_source=1&gclid=EAIaIQobChMInKfe0c-piQMVyACtBh1QGz3lEAAYASAAEgILbPD_BwE</a> Acesso em: 6 out.2024
+    </p>
+</div>
             </div>
-        </div>
     )
 }
         // <WavyBackground className="max-w-4xl mx-auto pb-40 overflow-x-hidden">
