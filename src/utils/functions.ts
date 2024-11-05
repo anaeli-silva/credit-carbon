@@ -7,12 +7,12 @@ function cn(...inputs: ClassValue[]) {
 }
 
 const listCalc = [
-  { label: "Carro", icon: CarFront, },
-  { label: "Ônibus", icon: BusFront },
-  { label: "Voos", icon: Plane },
-  { label: "Eletricidade", icon: Zap },
-  { label: "Trem", icon: TrainFront },
-  { label: "E-Bike", icon: Bike },
+  { label: "Carro", icon: CarFront, type: "car" },
+  { label: "Ônibus", icon: BusFront, type: "bus" },
+  { label: "Voos", icon: Plane, type: "voos" },
+  { label: "Eletricidade", icon: Zap, type: "eletricidade" },
+  { label: "Trem", icon: TrainFront, type: "trem" },
+  { label: "E-Bike", icon: Bike, type:"ebike" },
 ]
 
 

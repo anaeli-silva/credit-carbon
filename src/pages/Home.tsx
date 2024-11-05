@@ -5,7 +5,7 @@ import { listCalc } from '@/utils/functions'
 import { motion } from 'framer-motion'
 import { Activity, Building2, CreditCard, Trees } from 'lucide-react'
 import { Button } from '@/components/button'
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 export function Home() {
   const calculatorRef = useRef<HTMLDivElement>(null);
@@ -19,8 +19,8 @@ export function Home() {
       });
     }
   }
-  // const [showCalculator, setShowCalculator] = useState(false);
-  // const [typeCalculator, setTypeCaculator] = useState(false);
+  const [showCalculator, setShowCalculator] = useState(false);
+  const [typeCalculator, setTypeCaculator] = useState<"car" | "bus" | "voos" | "eletricidade" | "trem" | "ebike" | null>(null);
 
   useEffect(() => {
     const handleHashChange = () => {
@@ -38,7 +38,16 @@ export function Home() {
     return () => {
       window.removeEventListener('hashchange', handleHashChange);
     };
-  }, [])
+  }, []);
+
+  function onSelectTypeEmission(type: "car" | "bus" | "voos" | "eletricidade" | "trem" | "ebike") {
+    setShowCalculator(true);
+    setTypeCaculator(type);
+
+    console.log(showCalculator)
+    console.log(typeCalculator)
+
+  }
 
   const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -136,7 +145,11 @@ export function Home() {
           <div className='flex flex-row justify-start flex-wrap mt-3'>
             {
               listCalc.map((item, i) => (
-                <button key={i} className='flex-[0_0_20%] flex flex-col items-center hover:bg-gray-100 rounded-xl transition duration-150 dark:hover:bg-[#232225] border-1 border-transparent dark:hover:border-[#3E3C41]'>
+                <button   
+                  key={i} 
+                  className='flex-[0_0_20%] flex flex-col items-center hover:bg-gray-100 rounded-xl transition duration-150 dark:hover:bg-[#232225] border-1 border-transparent dark:hover:border-[#3E3C41]'
+                  onClick={() => onSelectTypeEmission(item.type)}
+                >
                   <div className='flex flex-col items-center text-center w-full p-4 rounded-xl'>
                     <item.icon size={32} />
                     <p>{item.label}</p>
