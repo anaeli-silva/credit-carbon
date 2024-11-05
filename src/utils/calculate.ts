@@ -108,5 +108,8 @@ function calcTrem({ distancia }: ITrem): number {
 // Exportanto a função
 export {
   calcCar,
-  calcMoto
+  calcMoto,
+  calcBus,
+  calcAviao,
+  calcTrem,
 }
