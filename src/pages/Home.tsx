@@ -148,7 +148,7 @@ export function Home() {
                 <button   
                   key={i} 
                   className='flex-[0_0_20%] flex flex-col items-center hover:bg-gray-100 rounded-xl transition duration-150 dark:hover:bg-[#232225] border-1 border-transparent dark:hover:border-[#3E3C41]'
-                  onClick={() => onSelectTypeEmission(item.type)}
+                  onClick={() => onSelectTypeEmission("car")}
                 >
                   <div className='flex flex-col items-center text-center w-full p-4 rounded-xl'>
                     <item.icon size={32} />
