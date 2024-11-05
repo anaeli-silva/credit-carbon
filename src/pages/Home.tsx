@@ -59,7 +59,7 @@ export function Home() {
             className='flex flex-col items-center gap-2'
           >
             <Trees size={32} />
-            <p className='text-center'>Ajude a<br/>florestas.</p>
+            <p className='text-center'>Ajude as<br/>florestas.</p>
           </Card>
           <Card 
             initial={{ opacity: 0, y: 100 }}
