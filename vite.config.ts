@@ -10,6 +10,9 @@ export default defineConfig({
   resolve: {
     alias: {
       '@': '/src',
+      'node:fs': './empty-polyfills.js',
+      'fs/promises': './empty-polyfills.js',
+      'fs': './empty-polyfills.js',
     },
   }
 })
