@@ -39,12 +39,20 @@ export function CardTeam({ name, imgSource, linkedinUrl, githubUrl, description,
             >
                 <h3 className="font-medium text-2xl mb-4">{name}</h3>
                 <div className="flex items-center gap-4 mb-4">
-                    <a href={linkedinUrl} target="_blank">
-                        <LinkedinLogo width={28} height={28}/>
-                    </a>
-                    <a href={githubUrl} target="_blank">
-                        <GithubLogo width={28} hanging={28} fill={theme == "light" ? "black" : "white"} />
-                    </a>
+                    {
+                        linkedinUrl && (
+                            <a href={linkedinUrl} target="_blank">
+                                <LinkedinLogo width={28} height={28}/>
+                            </a>
+                        )
+                    }
+                    {
+                        githubUrl && (
+                            <a href={githubUrl} target="_blank">
+                                <GithubLogo width={28} hanging={28} fill={theme == "light" ? "black" : "white"} />
+                            </a>
+                        )
+                    }
                 </div>
 
                 <p className="text-justify text-lg">{description}</p>

@@ -102,6 +102,19 @@ function calcTrem({ distancia }: ITrem): number {
   return distancia * 0.05;
 }
 
+// Eletricidade
+interface IEletricidade {
+  consumo: number;
+}
+
+function calcEletricidade({ consumo }: IEletricidade): number {
+  // Emissões = Consumo (KWh) * Fator de emissão (KgCO2/KWh);
+
+  // Fator de emissão -> 0.085
+
+  return consumo * 0.085
+}
+
 
 
 
@@ -112,4 +125,5 @@ export {
   calcBus,
   calcAviao,
   calcTrem,
+  calcEletricidade
 }

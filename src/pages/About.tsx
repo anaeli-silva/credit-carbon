@@ -1,10 +1,33 @@
 import { CardTeam } from "@/components/CardTeam"
-
+import Florest from "@/assets/floresta.svg?react"
+import { Button } from "@/components/button"
 
 
 export function About() {
     return (
         <div className="max-w-7xl mx-auto px-5 py-8">
+            <div className="flex h-[90vh] pt-24">
+                <div className="flex flex-col mb-44">
+                    <h1 className="text-3xl font-semibold mb-5">Sobre nós</h1>
+                    <p className="text-lg">
+                        Conheça a equipe responsável pelo desenvolvimento do projeto.
+                        <br />
+                        Sempre trabalhando para um mundo melhor e mais acessível.
+                    </p>
+
+
+                    <div className="mt-[25%]">
+                        <p className="text-lg mt-8">Você pode conhecer cada um mais</p>
+                        <Button
+                            className="w-full mt-6"
+                            label="Baixe nossa APS"
+                        />
+                    </div>
+                </div>
+
+                <Florest className="h-3/4" />
+            </div>
+
             <div className="flex flex-col gap-16 px-24">
                 <CardTeam 
                     name="Anaeli Ferreira"
@@ -15,7 +38,7 @@ export function About() {
                 />
                 <CardTeam 
                     name="Thayná Spadari"
-                    imgSource="/"
+                    imgSource="thayna.jpeg"
                     linkedinUrl=""
                     githubUrl=""
                     description="Sou a Thayná Spadari e minhas coisas favoritas no mundo e praia, música e esporte. Todo dia arranjo um horário para cuidar da minha saúde, como jogando bola ou fazendo academia. Sou uma pessoa que ama procurar coisas novas para aprender, maioria das vezes tô aprendendo línguas novas, e meu foco de vida é estudar e aprender, para poder ajudar minha família e todos que precisarem de mim. Enfim sou um ser humano que estou sempre aberta para desafios e aprendizados."
@@ -38,6 +61,16 @@ export function About() {
                     description="Uma pessoa apaixonado por videogames, música e códigos. Nos tempos livres estou a aprender a desenhar e tocar algum instrumento (Violão), além disto, estou sempre procurando (estudando) maneiras de como se tornar um dev melhor, como uma pessoa autodidata, e tornar a tecnologia mais acessível e de fácil compreensão."
                     className="flex-row-reverse"
                 />
+            </div>
+
+            <div className="mt-12">
+                <h2 className="text-3xl font-semibold my-5 text-center">Referencias</h2>
+
+                <ul>
+                    <li>
+                        <a href="" target="_blank"></a>
+                    </li>
+                </ul>
             </div>
         </div>
     )
