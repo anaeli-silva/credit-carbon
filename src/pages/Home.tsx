@@ -5,7 +5,7 @@ import { listCalc } from '@/utils/functions'
 import { motion } from 'framer-motion'
 import { Activity, Building2, CreditCard, Trees } from 'lucide-react'
 import { Button } from '@/components/button'
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 export function Home() {
   const calculatorRef = useRef<HTMLDivElement>(null);
@@ -19,6 +19,8 @@ export function Home() {
       });
     }
   }
+  // const [showCalculator, setShowCalculator] = useState(false);
+  // const [typeCalculator, setTypeCaculator] = useState(false);
 
   useEffect(() => {
     const handleHashChange = () => {

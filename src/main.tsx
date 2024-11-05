@@ -15,7 +15,7 @@ createRoot(document.getElementById('root')!).render(
       <Router />
       <Footer />
       {/* </TracingBeam> */}
-      <div className='relative'>
+      <div className='relative z-10'>
         <Widget.Panel />
         <Widget.Button />
       </div>
