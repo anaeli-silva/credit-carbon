@@ -54,10 +54,10 @@ export function Footer() {
                             <a href="https://www.linkedin.com/in/anaeli-ferreira/" target="_blank">Anaeli Ferreira</a>
                         </li>
                         <li>
-                            <a href="https://www.linkedin.com/in/anaeli-ferreira/" target="_blank">Thayna Spadari</a>
+                            <a href="#" target="_blank">Thayna Spadari</a>
                         </li>
                         <li>
-                            <a href="https://www.linkedin.com/in/anaeli-ferreira/" target="_blank">Victor Rinaldi</a>
+                            <a href="https://www.linkedin.com/in/victor-rinaldi-7985162a7/" target="_blank">Victor Rinaldi</a>
                         </li>
                         <li>
                             <a href="https://www.linkedin.com/in/vinicius-scosta/" target="_blank">Vinicius Costa</a>
