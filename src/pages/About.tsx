@@ -18,10 +18,12 @@ export function About() {
 
                     <div className="mt-[25%]">
                         <p className="text-lg mt-8">Você pode conhecer cada um mais</p>
-                        <Button
-                            className="w-full mt-6"
-                            label="Baixe nossa APS"
-                        />
+                        <a href="/APS.pdf" download>
+                            <Button
+                                className="w-full mt-6"
+                                label="Baixe nossa APS"
+                            />
+                        </a>
                     </div>
                 </div>
 

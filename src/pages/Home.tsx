@@ -7,9 +7,11 @@ import { Activity, Building2, CreditCard, Trees } from 'lucide-react'
 import { Button } from '@/components/button'
 import { useEffect, useRef, useState } from 'react'
 import { calcAviao, calcBus, calcCar, calcEletricidade, calcMoto, calcTrem } from '@/utils/calculate'
+import { useNavigate } from 'react-router-dom'
 
 export function Home() {
   const calculatorRef = useRef<HTMLDivElement>(null);
+  const navigate = useNavigate();
   const scrollToCalculator = () => {
     const { current } = calculatorRef;
     
@@ -194,6 +196,7 @@ export function Home() {
                 <Button 
                   label='Veja mais'
                   className='w-full mt-4'
+                  onClick={() => navigate("/about")}
                 />
               </Card>
             </div>
