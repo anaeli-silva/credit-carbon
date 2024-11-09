@@ -64,6 +64,32 @@ Executa o linter para verificar problemas no código.
 
 1. Faça um fork do projeto.
 2. Crie uma branch para sua feature (`git checkout -b feature/nova-feature`).
-3. Commit suas mudanças (`git commit -m 'Adiciona nova feature'`).
+3. Commit suas mudanças (`git commit -am 'Adiciona nova feature'`).
 4. Faça um push para a branch (`git push origin feature/nova-feature`).
 5. Abra um Pull Request.
+
+## Licença
+
+Este projeto está licenciado sob a Licença MIT - veja o arquivo LICENSE para mais detalhes.
+
+# Ollama
+
+Caso opte por utilizar a Ianni, a IA terá que baixar o Ollama, siga os passos abaixo:
+
+1. Baixe e instale o Ollama a partir do [site oficial](https://ollama.com/).
+
+2. Após a instalação, abra o Ollama e siga as instruções de configuração.
+
+3. Baixe um modelo:
+
+    ```sh
+    ollama download <nome-do-modelo>
+    ```
+
+4. Crie um modelo chamado "Ianni":
+
+    ```sh
+    ollama create Ianni -f <location of the file e.g. ./Modelfile>
+    ```
+
+Para mais informações, consulte a [documentação do Ollama](https://github.com/ollama/ollama/tree/main/docs).
