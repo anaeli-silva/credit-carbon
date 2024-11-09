@@ -5,7 +5,8 @@ import { listCalc } from '@/utils/functions'
 import { motion } from 'framer-motion'
 import { Activity, Building2, CreditCard, Trees } from 'lucide-react'
 import { Button } from '@/components/button'
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
+import { calcAviao, calcBus, calcCar, calcEletricidade, calcMoto, calcTrem } from '@/utils/calculate'
 
 export function Home() {
   const calculatorRef = useRef<HTMLDivElement>(null);
@@ -19,8 +20,15 @@ export function Home() {
       });
     }
   }
-  // const [showCalculator, setShowCalculator] = useState(false);
-  // const [typeCalculator, setTypeCaculator] = useState(false);
+  const [showCalculator, setShowCalculator] = useState(false);
+  const [typeCalculator, setTypeCaculator] = useState<"car" | "bus" | "voos" | "eletricidade" | "trem" | "ebike" | null>(null);
+  const [result, setResult] = useState<number | null>(null);
+  const [inputs, setInputs] = useState({
+    distancia: '',
+    consumo: '',
+    tipoCombustivel: 'gasolina',
+    cilindrada: '0'
+  });
 
   useEffect(() => {
     const handleHashChange = () => {
@@ -38,11 +46,73 @@ export function Home() {
     return () => {
       window.removeEventListener('hashchange', handleHashChange);
     };
-  }, [])
+  }, []);
+
+  function onSelectTypeEmission(type: "car" | "bus" | "voos" | "eletricidade" | "trem" | "ebike") {
+    setShowCalculator(true);
+    setResult(null)
+    setInputs({
+      distancia: '',
+      consumo: '',
+      tipoCombustivel: 'gasolina',
+      cilindrada: '0',
+    })
+    setTypeCaculator(type);
+
+    console.log(showCalculator)
+    console.log(typeCalculator)
+
+  }
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+    const { name, value } = e.target;
+    setInputs({
+      ...inputs,
+      [name]: value
+    });
+  }
 
   const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    let emissionResult = 0;
+
+    switch (typeCalculator) {
+      case 'car':
+        emissionResult = calcCar({
+          tipoCombustivel: inputs.tipoCombustivel as "gasolina" | "alcool" | "diesel" | "gas natural" | "eletrico",
+          consumo: parseFloat(inputs.consumo),
+          distancia: parseFloat(inputs.distancia)
+        });
+        break;
+      case 'bus':
+        emissionResult = calcBus({ distancia: parseFloat(inputs.distancia) });
+        break;
+      case 'voos':
+        emissionResult = calcAviao({ distancia: parseFloat(inputs.distancia) });
+        break;
+      case 'trem':
+        emissionResult = calcTrem({ distancia: parseFloat(inputs.distancia) });
+        break;
+      case 'ebike':
+        emissionResult = calcMoto({
+          cilindrada: inputs.cilindrada as "0" | "1" | "2",
+          distancia: parseFloat(inputs.distancia)
+        });
+        break;
+      case 'eletricidade':
+        emissionResult = calcEletricidade({
+          consumo: parseFloat(inputs.consumo)
+        })
+        break;
+      default:
+        emissionResult = 0;
+    }
+
+    setResult(emissionResult);
   }
+
+  const emissionPerTen = (totalEmission: number) => totalEmission * 10;
+  const treesNeeded = (totalEmission: number) => Math.ceil(totalEmission / 22000);
 
   return (
     <>
@@ -136,7 +206,11 @@ export function Home() {
           <div className='flex flex-row justify-start flex-wrap mt-3'>
             {
               listCalc.map((item, i) => (
-                <button key={i} className='flex-[0_0_20%] flex flex-col items-center hover:bg-gray-100 rounded-xl transition duration-150 dark:hover:bg-[#232225] border-1 border-transparent dark:hover:border-[#3E3C41]'>
+                <button   
+                  key={i} 
+                  className='flex-[0_0_20%] flex flex-col items-center hover:bg-gray-100 rounded-xl transition duration-150 dark:hover:bg-[#232225] border-1 border-transparent dark:hover:border-[#3E3C41]'
+                  onClick={() => onSelectTypeEmission(item.type)}
+                >
                   <div className='flex flex-col items-center text-center w-full p-4 rounded-xl'>
                     <item.icon size={32} />
                     <p>{item.label}</p>
@@ -146,46 +220,131 @@ export function Home() {
             }
           </div>
 
-          <motion.div 
-            className='mt-16'
-          >
-            <h2 className='text-center text-2xl font-bold mb-4'>Informe suas emissões</h2>
-            <div className='flex'>
-              <form onSubmit={onSubmit} className='flex flex-col gap-3 flex-[0_0_50%] w-full'>
-                <label className='flex flex-col'>
-                  <label>Distância</label>
-                  <Input placeholder='0.0km' />
-                </label>
+          {showCalculator && (
+            <motion.div 
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: 'auto' }}
+              exit={{ opacity: 0, height: 0 }}
+              className='mt-16'
+            >
+              <h2 className='text-center text-2xl font-bold mb-4'>Informe suas emissões</h2>
+              <div className='flex flex-col gap-8'>
+                <form onSubmit={onSubmit} className='flex flex-col gap-3 w-full'>
+                  {typeCalculator !== "eletricidade" && (
+                    <label className='flex flex-col'>
+                      <span>Distância</span>
+                      <Input 
+                        name='distancia'
+                        value={inputs.distancia}
+                        onChange={handleInputChange}
+                        placeholder='0.0km' 
+                      />
+                    </label>
+                  )}
 
-                <label className='flex flex-col'>
-                  <label>Consumo de combustível</label>
-                  <Input placeholder='0L/km' />
-                </label>
+                  {typeCalculator === 'car' && (
+                    <>
+                      <label className='flex flex-col'>
+                        <span>Consumo de combustível</span>
+                        <Input 
+                          name='consumo'
+                          value={inputs.consumo}
+                          onChange={handleInputChange}
+                          placeholder='0L/km' 
+                        />
+                      </label>
 
-                <label className='flex flex-col'>
-                  <label>Tipo de combustível</label>
-                  <select className='border-2 border-zinc-200 rounded-md outline-none'>
-                    <option value="1">Biogás</option>
-                    <option value="1">Diesel</option>
-                    <option value="1">Gasolina</option>
-                  </select>
-                </label>
+                      <label className='flex flex-col'>
+                        <span>Tipo de combustível</span>
+                        <select 
+                          name='tipoCombustivel'
+                          value={inputs.tipoCombustivel}
+                          onChange={handleInputChange}
+                          className='border-1 border-zinc-200 rounded-md outline-none p-2 dark:bg-transparent dark:border-zinc-500'
+                        >
+                          <option value="gasolina">Gasolina</option>
+                          <option value="alcool">Álcool</option>
+                          <option value="diesel">Diesel</option>
+                          <option value="gas natural">Gás Natural</option>
+                          <option value="eletrico">Elétrico</option>
+                        </select>
+                      </label>
+                    </>
+                  )}
 
-                <Button 
-                  label='Calcular'
-                  className='mt-4'
-                />
-              </form>
+                  {typeCalculator === 'ebike' && (
+                    <label className='flex flex-col'>
+                      <span>Cilindrada</span>
+                      <select 
+                        name='cilindrada'
+                        value={inputs.cilindrada}
+                        onChange={handleInputChange}
+                        className='border-2 border-zinc-200 rounded-md outline-none'
+                      >
+                        <option value="0">Até 150</option>
+                        <option value="1">150 a 300</option>
+                        <option value="2">Acima de 500</option>
+                      </select>
+                    </label>
+                  )}
 
-              <div className='flex flex-col flex-[0_0_50%] border-l-[1px] border-zinc-200 pl-2 ml-4'>
-                <h4 className='font-semibold text-center text-xl w-full'>Resultado</h4>
+                  {typeCalculator === 'eletricidade' && (
+                    <label className='flex flex-col'>
+                      <span>Consumo de energia</span>
+                      <Input 
+                        name='consumo'
+                        value={inputs.consumo}
+                        onChange={handleInputChange}
+                        placeholder='0kWh' 
+                      />
+                    </label>
+                  )}
 
-                <div className='w-full'>
+                  {/* <label className='flex flex-col'>
+                    <label>Distância</label>
+                    <Input placeholder='0.0km' />
+                  </label>
 
-                </div>
+                  <label className='flex flex-col'>
+                    <label>Consumo de combustível</label>
+                    <Input placeholder='0L/km' />
+                  </label>
+
+                  <label className='flex flex-col'>
+                    <label>Tipo de combustível</label>
+                    <select className='border-2 border-zinc-200 rounded-md outline-none'>
+                      <option value="1">Biogás</option>
+                      <option value="1">Diesel</option>
+                      <option value="1">Gasolina</option>
+                    </select>
+                  </label> */}
+
+                  <Button 
+                    label='Calcular'
+                    className='mt-4'
+                  />
+                </form>
+                {result !== null && (
+                  <>
+                    <p className='text-center'>Você emitiu: {result.toFixed(2)} KgCO2</p>
+                    <p className='text-justify'>
+                    Ao realizar essa rota dez vezes, você gerará aproximadamente <span className="font-bold text-red-600">{emissionPerTen(result).toFixed(2)}</span> gramas de carbono. Para equilibrar essa emissão, seria necessário plantar pelo menos <span className="font-bold text-green-600">{treesNeeded(emissionPerTen(result))}</span> árvore(s), considerando que uma árvore adulta pode absorver cerca de <span className="font-bold text-green-600">22.000</span> gramas de CO₂ por ano. Portanto, para cada dez repetições dessa rota, o plantio de aproximadamente <span className="font-bold text-green-600">{treesNeeded(emissionPerTen(result))}</span> árvore(s) ajudaria a compensar o impacto ambiental.
+
+                    </p>
+                  </>
+                )}
+
+
+                {/* <div className='flex flex-col flex-[0_0_50%] border-l-[1px] border-zinc-200 pl-2 ml-4'>
+                  <h4 className='font-semibold text-center text-xl w-full'>Resultado</h4>
+
+                  <div className='w-full'>
+
+                  </div>
+                </div> */}
               </div>
-            </div>
-          </motion.div>
+            </motion.div>
+          )}
         </div>
       </section>
     </>
